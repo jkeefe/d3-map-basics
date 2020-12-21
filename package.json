@@ -1,0 +1,24 @@
+{
+  "name": "d3-map-basics",
+  "version": "1.0.0",
+  "description": "Basic starting point, thanks to jsoma https://www.youtube.com/watch?v=G-VggTK-Wlg",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkeefe/d3-map-basics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkeefe/d3-map-basics/issues"
+  },
+  "homepage": "https://github.com/jkeefe/d3-map-basics#readme",
+  "dependencies": {
+    "http-server": "^0.12.3",
+    "server": "^1.0.31"
+  }
+}
