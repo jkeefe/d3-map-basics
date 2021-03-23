@@ -16,7 +16,7 @@
         .attr("transform", `translate(${margin.left}, ${margin.top})`)
         
     /// read in the files 
-    let data = await get_file("./data/HospitalReferralRegion.json") // actually topojson
+    let data = await get_file("./data/states.json") // actually topojson
     
     // set the projection
     let projection = d3.geoAlbersUsa()
@@ -30,7 +30,7 @@
     console.log(data)
     
     // standard topojson setup for assinging to an "object" in the file
-    var regions = topojson.feature(data, data.objects.HospitalReferralRegion).features
+    var regions = topojson.feature(data, data.objects.states).features
     
     console.log(regions)
     
