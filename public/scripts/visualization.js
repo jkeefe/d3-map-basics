@@ -18,20 +18,37 @@
     /// read in the files 
     let data = await get_file("./data/states.json") // actually topojson
     
-    // set the projection
-    let projection = d3.geoAlbersUsa()
-        .translate([ width / 2, height / 2])
-        .scale(800)
-        
+    // // set the projection
+    // let projection = d3.geoAlbersUsa()
+    //     .translate([ width / 2, height / 2])
+    //     .scale(800)
+    // 
+    // // create a path
+    // let path = d3.geoPath()
+    //     .projection(projection)
+    
+    
+    // this will be a FeatureCollection
+    let collection = topojson.feature(data, data.objects.states);
+    
+    // if the topojson is already projected as AlbersUsa ...
+    // Use a "null" projection that flips the Y coordinate and rescales to fit your SVG
+    let projection = d3
+        .geoIdentity()
+        .reflectY(true)
+        .fitSize([width, height], collection);
+
     // create a path
-    let path = d3.geoPath()
-        .projection(projection)
-        
+    let path = d3.geoPath().projection(projection);
+
+    let regions = collection.features;
+
+    // // standard topojson setup for assinging to an "object" in the file
+    // var regions = topojson.feature(data, data.objects.cb_2018_us_state_500k).features
+
+    
     console.log(data)
-    
-    // standard topojson setup for assinging to an "object" in the file
-    var regions = topojson.feature(data, data.objects.states).features
-    
+        
     console.log(regions)
     
     svg.selectAll(".regions") // add elements to the svg
